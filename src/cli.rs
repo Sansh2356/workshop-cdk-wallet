@@ -104,6 +104,7 @@ pub async fn cli(mint_url: MintUrl) -> anyhow::Result<()> {
             let info = mint_info(&mint_url).await?;
             let wallet = wallet(&mint_url, args.wallet).await?;
             let amount = Amount::from(amount);
+            println!("{amount}");
             let quote = mint_quote(&info, &wallet, amount).await?;
 
             println!(
